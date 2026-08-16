@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameSphere | Gallery</title>
+    <link rel="stylesheet" href="Extensions.css" />
+  </head>
+  <body class="gallery-page">
+    <header class="site-header">
+      <div class="logo-wrap">
+        <img src="Images/Main Final logo.jpg" alt="GameSphere logo" />
+      </div>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="Index.html">Home</a>
+        <a href="Games.html">Games</a>
+        <a href="Moments.html">Moments</a>
+        <a href="Squad.html">Squad</a>
+        <a href="Gallery.html">Gallery</a>
+      </nav>
+    </header>
+
+    <div class="bg-music">
+      <span class="bg-music-label">🎵 Vibing chimes</span>
+      <audio id="bgAudio" controls loop>
+        <source src="Music/1 hour of minecraft music for studying (c418) - BeforePhantoms (128k).mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <script>
+      const audio = document.getElementById('bgAudio');
+      
+      // Load saved playback state on page load
+      window.addEventListener('load', () => {
+        const savedTime = localStorage.getItem('bgAudioTime');
+        const wasPlaying = localStorage.getItem('bgAudioPlaying') === 'true';
+        
+        if (savedTime) {
+          audio.currentTime = parseFloat(savedTime);
+        }
+        
+        if (wasPlaying) {
+          audio.play().catch(() => {
+            // Autoplay might be blocked, user can click play
+          });
+        }
+      });
+      
+      // Save playback state before leaving page
+      window.addEventListener('beforeunload', () => {
+        localStorage.setItem('bgAudioTime', audio.currentTime.toString());
+        localStorage.setItem('bgAudioPlaying', (!audio.paused).toString());
+      });
+    </script>
+
+    <main class="page-shell gallery-shell">
+      <section class="gallery-intro">
+        <p class="eyebrow">Inspiration & Moments</p>
+        <h1>Gallery</h1>
+        <p>
+          Inspirational quotes from the squad, epic moments from our gaming sessions, and unforgettable memories from our journey together.
+        </p>
+      </section>
+
+      <!-- Quotes Section -->
+      <section class="gallery-section">
+        <h2 class="section-title">Squad Wisdom</h2>
+        <div class="quotes-grid" aria-label="Squad quotes">
+          <article class="quote-card">
+            <blockquote class="quote-text">
+              "Success is not final; failure is not fatal: it is the courage to continue that counts."
+            </blockquote>
+            <p class="quote-author">— Winston Churchill</p>
+          </article>
+
+          <article class="quote-card">
+            <blockquote class="quote-text">
+              "The only way to do great work is to love what you do."
+            </blockquote>
+            <p class="quote-author">— Steve Jobs</p>
+          </article>
+
+          <article class="quote-card">
+            <blockquote class="quote-text">
+              "Champions keep playing until they get it right."
+            </blockquote>
+            <p class="quote-author">— Billie Jean King</p>
+          </article>
+
+          <article class="quote-card">
+            <blockquote class="quote-text">
+              "It's not about the destination, it's about the squad you bring with you."
+            </blockquote>
+            <p class="quote-author">— The GameSphere Crew</p>
+          </article>
+
+          <article class="quote-card">
+            <blockquote class="quote-text">
+              "Every setback is a setup for a comeback."
+            </blockquote>
+            <p class="quote-author">— Unknown</p>
+          </article>
+
+          <article class="quote-card">
+            <blockquote class="quote-text">
+              "We rise by lifting others."
+            </blockquote>
+            <p class="quote-author">— Robert Ingersoll</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Video Gallery Section -->
+      <section class="gallery-section">
+        <h2 class="section-title">Epic Highlights</h2>
+        <div class="video-gallery" aria-label="Epic gameplay videos">
+          <article class="video-card">
+            <video controls playsinline>
+              <source src="Videos/Destiny 2 2024.05.20 - 18.47.11.02.DVR - Trim.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-info">
+              <h3>Destiny Triumph</h3>
+              <p>A legendary strike through enemy lines.</p>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <video controls playsinline>
+              <source src="Videos/Valorant 2024.07.13 - 01.08.41.13.DVR - Trim.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-info">
+              <h3>Valorant Domination</h3>
+              <p>Pure skill and strategy in the arena.</p>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <video controls playsinline>
+              <source src="Videos/Valorant 2024.07.13 - 21.18.23.04.DVR - Trim.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-info">
+              <h3>Unreal Engine peak</h3>
+              <p>The game engine was with us.</p>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <video controls playsinline>
+              <source src="Videos/Valorant 2024.09.29 - 16.14.12.03.DVR - Trim.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-info">
+              <h3>Ranked Grind</h3>
+              <p>Climbing the competitive ladder one win at a time.</p>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <video controls playsinline>
+              <source src="Videos/golgoreth flying off map.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-info">
+              <h3>Gravity's No Match</h3>
+              <p>Best Destiny bug in a longtime.</p>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <video controls playsinline>
+              <source src="Videos/one hp and a dream.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-info">
+              <h3>Clutch Survival</h3>
+              <p>Living on the edge with one HP and pure determination.</p>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <video controls playsinline>
+              <source src="Videos/uhhhhhhhhh_-_Made_with_Clipchamp.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-info">
+              <h3>Unexpected Chaos</h3>
+              <p>When plans fall apart and chaos ensues.</p>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <video controls playsinline>
+              <source src="Videos/Desktop 2026.03.08 - 01.33.13.02.Dvr - Trim(1).mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-info">
+              <h3>Chaos to the max</h3>
+              <p>Maximum performance, zero mercy.</p>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <video controls playsinline>
+              <source src="Videos/Replay_2021.05.02-22.50_Trim.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-info">
+              <h3>Throwback Moment</h3>
+              <p>A classic from the archives.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Image Gallery Section -->
+      <section class="gallery-section">
+        <h2 class="section-title">Gaming Moments</h2>
+        <div class="image-gallery" aria-label="Gaming screenshots and photos">
+          <article class="image-card">
+            <img src="Images/Gaming pics/cooked.jfif" alt="Gaming screenshot - Cooked" loading="lazy" />
+            <div class="image-overlay">
+              <p>That's a wrap!</p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <img src="Images/Gaming pics/Me Vs the whole world.jfif" alt="Gaming screenshot - Me vs the whole world" loading="lazy" />
+            <div class="image-overlay">
+              <p>Solo Clutch</p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <img src="Images/Gaming pics/Hytale2026-01-13_10-23-01.png" alt="Hytale gameplay screenshot" loading="lazy" />
+            <div class="image-overlay">
+              <p>Hytale Adventures</p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <img src="Images/Gaming pics/Screenshot 2026-02-11 230157.png" alt="Gaming screenshot - February" loading="lazy" />
+            <div class="image-overlay">
+              <p>Night Gaming Session</p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <img src="Images/Gaming pics/Screenshot 2026-04-08 213629.png" alt="Gaming screenshot - April" loading="lazy" />
+            <div class="image-overlay">
+              <p>Squad Gameplay</p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <img src="Images/Gaming pics/Screenshot 2026-08-10 033019.png" alt="Gaming screenshot - August" loading="lazy" />
+            <div class="image-overlay">
+              <p>Late Night Grind</p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <img src="Images/Gaming pics/NRG s0m and Mada dap up.jpg" alt="Gaming screenshot - NRG s0m and Mada" loading="lazy" />
+            <div class="image-overlay">
+              <p>Dap Up Moment</p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <img src="Images/Gaming pics/Screenshot 2025-10-30 105922.png" alt="Gaming screenshot - October" loading="lazy" />
+            <div class="image-overlay">
+              <p>Epic Victory</p>
+            </div>
+          </article>
+
+          <article class="image-card">
+            <img src="Images/Gaming pics/ezgif-2880c7f184016d0d.gif" alt="Gaming animation - Animated moment" loading="lazy" />
+            <div class="image-overlay">
+              <p>Action Packed</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <p class="gallery-footer">More memories being created every day 🎮</p>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 GameSphere | Created by JohnRichard O'Bryant</p>
+      <p>Contact: <a href="mailto:obryant.j@northeastern.edu">obryant.j@northeastern.edu</a></p>
+    </footer>
+  </body>
+</html>
