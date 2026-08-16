@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameSphere | Moments</title>
+    <link rel="stylesheet" href="Extensions.css" />
+  </head>
+  <body class="moments-page">
+    <header class="site-header">
+      <div class="logo-wrap">
+        <img src="Images/Main Final logo.jpg" alt="GameSphere logo" />
+      </div>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="Index.html">Home</a>
+        <a href="Games.html">Games</a>
+        <a href="Moments.html">Moments</a>
+        <a href="Squad.html">Squad</a>
+        <a href="Gallery.html">Gallery</a>
+      </nav>
+    </header>
+
+    <div class="bg-music">
+      <span class="bg-music-label">🎵 Vibing chimes</span>
+      <audio id="bgAudio" controls loop>
+        <source src="Music/1 hour of minecraft music for studying (c418) - BeforePhantoms (128k).mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <script>
+      const audio = document.getElementById('bgAudio');
+      
+      // Load saved playback state on page load
+      window.addEventListener('load', () => {
+        const savedTime = localStorage.getItem('bgAudioTime');
+        const wasPlaying = localStorage.getItem('bgAudioPlaying') === 'true';
+        
+        if (savedTime) {
+          audio.currentTime = parseFloat(savedTime);
+        }
+        
+        if (wasPlaying) {
+          audio.play().catch(() => {
+            // Autoplay might be blocked, user can click play
+          });
+        }
+      });
+      
+      // Save playback state before leaving page
+      window.addEventListener('beforeunload', () => {
+        localStorage.setItem('bgAudioTime', audio.currentTime.toString());
+        localStorage.setItem('bgAudioPlaying', (!audio.paused).toString());
+      });
+    </script>
+
+    <main class="page-shell">
+      <section class="moments-intro">
+        <p class="eyebrow">Shared Highlights</p>
+        <h1>Squad Moments</h1>
+      </section>
+
+      <section class="moments-grid" aria-label="Friends clips">
+        <article class="moment-card">
+          <video controls muted playsinline>
+            <source src="Videos/Valorant clip jojo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div class="moment-copy">
+            <h2>Clutch Setup</h2>
+            <p>Fast reactions and pure confidence when the pressure hits.</p>
+          </div>
+        </article>
+
+        <article class="moment-card">
+          <video controls muted playsinline>
+            <source src="Videos/Marvel Rivals 2026.05.19 - 02.04.52.22.DVR - Trim.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div class="moment-copy">
+            <h2>Poor Jeff</h2>
+            <p>Jeff fears Magneto for the first time.</p>
+          </div>
+        </article>
+
+        <article class="moment-card">
+          <video controls muted playsinline>
+            <source src="Videos/Valorant 2025.01.03 - 00.08.20.53.DVR - Trim.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div class="moment-copy">
+            <h2>Clean Aim</h2>
+            <p>A highlight reel moment from one of the best rounds of the night.</p>
+          </div>
+        </article>
+
+        <article class="moment-card">
+          <video controls muted playsinline>
+            <source src="Videos/Borderlands 4 2025.09.18 - 10.37.41.04.DVR - Trim.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div class="moment-copy">
+            <h2>Boss Melt of Doom</h2>
+            <p>Melting bosses in borderlands 4 is fun</p>
+          </div>
+        </article>
+      </section>
+
+      <p class="moments-footer">There's more to come;)....</p>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 GameSphere | Created by JohnRichard O'Bryant</p>
+      <p>Contact: <a href="mailto:obryant.j@northeastern.edu">obryant.j@northeastern.edu</a></p>
+    </footer>
+  </body>
+</html>

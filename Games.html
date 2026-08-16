@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameSphere | Games</title>
+    <link rel="stylesheet" href="Extensions.css" />
+  </head>
+  <body class="games-page">
+    <header class="site-header">
+      <div class="logo-wrap">
+        <img src="Images/Main Final logo.jpg" alt="GameSphere logo" />
+      </div>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="Index.html">Home</a>
+        <a href="Games.html">Games</a>
+        <a href="Moments.html">Moments</a>
+        <a href="Squad.html">Squad</a>
+        <a href="Gallery.html">Gallery</a>
+      </nav>
+    </header>
+
+    <div class="bg-music">
+      <span class="bg-music-label">🎵 Vibing chimes</span>
+      <audio id="bgAudio" controls loop>
+        <source src="Music/1 hour of minecraft music for studying (c418) - BeforePhantoms (128k).mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <script>
+      const audio = document.getElementById('bgAudio');
+      
+      // Load saved playback state on page load
+      window.addEventListener('load', () => {
+        const savedTime = localStorage.getItem('bgAudioTime');
+        const wasPlaying = localStorage.getItem('bgAudioPlaying') === 'true';
+        
+        if (savedTime) {
+          audio.currentTime = parseFloat(savedTime);
+        }
+        
+        if (wasPlaying) {
+          audio.play().catch(() => {
+            // Autoplay might be blocked, user can click play
+          });
+        }
+      });
+      
+      // Save playback state before leaving page
+      window.addEventListener('beforeunload', () => {
+        localStorage.setItem('bgAudioTime', audio.currentTime.toString());
+        localStorage.setItem('bgAudioPlaying', (!audio.paused).toString());
+      });
+    </script>
+
+    <main class="page-shell">
+      <section class="games-intro">
+        <p class="eyebrow">Featured Collection</p>
+        <h1>Game Library</h1>
+      </section>
+
+      <section class="games-grid" aria-label="Featured games">
+        <article class="game-card">
+          <div class="game-image game-one"></div>
+          <div class="game-copy">
+            <h2>Destiny</h2>
+            <p>Explore new frontiers, gear up, and fight for survival in a cosmic adventure.</p>
+          </div>
+        </article>
+
+        <article class="game-card">
+          <div class="game-image game-two"></div>
+          <div class="game-copy">
+            <h2>Palworld</h2>
+            <p>Capture creatures, build your world, and take on thrilling challenges with friends.</p>
+          </div>
+        </article>
+
+        <article class="game-card">
+          <div class="game-image game-three"></div>
+          <div class="game-copy">
+            <h2>Call of Duty</h2>
+            <p>Fast-paced teamwork, precision aiming, and tactical wins define every battle.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="video-showcase" aria-label="Featured Marathon clip">
+        <div class="video-frame">
+          <video controls muted playsinline>
+            <source src="Videos/one hp and a dream.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="video-copy">
+          <p class="eyebrow">Featured Game</p>
+          <h2>The game Marathon made by Bungie</h2>
+          <div class="marathon-logo-wrap">
+            <img src="Images/boarderimages/Marathon.jpg" alt="Marathon game logo" />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 GameSphere | Created by JohnRichard O'Bryant</p>
+      <p>Contact: <a href="mailto:obryant.j@northeastern.edu">obryant.j@northeastern.edu</a></p>
+    </footer>
+  </body>
+</html>

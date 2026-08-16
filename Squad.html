@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameSphere | Squad</title>
+    <link rel="stylesheet" href="Extensions.css" />
+  </head>
+  <body class="squad-page">
+    <header class="site-header">
+      <div class="logo-wrap">
+        <img src="Images/Main Final logo.jpg" alt="GameSphere logo" />
+      </div>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="Index.html">Home</a>
+        <a href="Games.html">Games</a>
+        <a href="Moments.html">Moments</a>
+        <a href="Squad.html">Squad</a>
+        <a href="Gallery.html">Gallery</a>
+      </nav>
+    </header>
+
+    <div class="bg-music">
+      <span class="bg-music-label">🎵 Vibing chimes</span>
+      <audio id="bgAudio" controls loop>
+        <source src="Music/1 hour of minecraft music for studying (c418) - BeforePhantoms (128k).mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <script>
+      const audio = document.getElementById('bgAudio');
+      
+      // Load saved playback state on page load
+      window.addEventListener('load', () => {
+        const savedTime = localStorage.getItem('bgAudioTime');
+        const wasPlaying = localStorage.getItem('bgAudioPlaying') === 'true';
+        
+        if (savedTime) {
+          audio.currentTime = parseFloat(savedTime);
+        }
+        
+        if (wasPlaying) {
+          audio.play().catch(() => {
+            // Autoplay might be blocked, user can click play
+          });
+        }
+      });
+      
+      // Save playback state before leaving page
+      window.addEventListener('beforeunload', () => {
+        localStorage.setItem('bgAudioTime', audio.currentTime.toString());
+        localStorage.setItem('bgAudioPlaying', (!audio.paused).toString());
+      });
+    </script>
+
+    <main class="page-shell squad-shell">
+      <section class="squad-intro">
+        <p class="eyebrow">The Crew</p>
+        <h1>Who is in the Squad?</h1>
+        <p>
+          Every member brings their own skill set, personality, and real-life hustle to the team.
+        </p>
+      </section>
+
+      <section class="roster-grid" aria-label="Squad members">
+        <article class="member-card">
+          <img src="Images/Squad account images/AV.png" alt="AV avatar" />
+          <div class="member-copy">
+            <h2>AV</h2>
+            <p class="member-role">Streamer & Content Creator</p>
+            <p>
+              AV is the voice of the squad online, creating gaming videos, managing live streams,
+              and turning every match into a community event.
+            </p>
+          </div>
+        </article>
+
+        <article class="member-card">
+          <img src="Images/Squad account images/Dr.wolf.png" alt="Dr. Wolf avatar" />
+          <div class="member-copy">
+            <h2>Dr. Wolf</h2>
+            <p class="member-role">Engineer & Tech Specialist</p>
+            <p>
+              In real life, Dr. Wolf works with systems, builds, and tech upgrades, making sure the squad
+              always has the best setup and strategy.
+            </p>
+          </div>
+        </article>
+
+        <article class="member-card">
+          <img src="Images/Squad account images/HodBoi.png" alt="HodBoi avatar" />
+          <div class="member-copy">
+            <h2>HodBoi</h2>
+            <p class="member-role">Fitness Coach & Team Motivator</p>
+            <p>
+              HodBoi brings energy and discipline to the crew, helping everyone stay focused, active,
+              and ready for the next challenge both in and out of the game.
+            </p>
+          </div>
+        </article>
+
+        <article class="member-card">
+          <img src="Images/Squad account images/Shmega.png" alt="Shmega avatar" />
+          <div class="member-copy">
+            <h2>Shmega</h2>
+            <p class="member-role">Marketing Strategist</p>
+            <p>
+              Shmega handles the brand side of the squad, building hype, managing outreach,
+              and making sure every event and stream has a strong presence.
+            </p>
+          </div>
+        </article>
+
+        <article class="member-card">
+          <img src="Images/Squad account images/Twist.png" alt="Twist avatar" />
+          <div class="member-copy">
+            <h2>Twist</h2>
+            <p class="member-role">Photographer & Creative Director</p>
+            <p>
+              Twist captures the squad’s moments, edits visuals, and brings a creative eye to every
+              project, stream, and highlight reel.
+            </p>
+          </div>
+        </article>
+
+        <article class="member-card">
+          <img src="Images/Squad account images/Winter.png" alt="Winter avatar" />
+          <div class="member-copy">
+            <h2>Winter</h2>
+            <p class="member-role">Esports Analyst & Student</p>
+            <p>
+              Winter studies the game deeply, breaks down strategies, and helps the team improve with smart plays,
+              data, and sharp analysis.
+            </p>
+            <a href="https://youtube.com/@onlywinterx3433?si=WzZR0__RIXz9V-LD" target="_blank" rel="noreferrer">
+              Visit my YouTube channel
+            </a>
+          </div>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p>&copy; 2026 GameSphere | Created by JohnRichard O'Bryant</p>
+      <p>Contact: <a href="mailto:obryant.j@northeastern.edu">obryant.j@northeastern.edu</a></p>
+    </footer>  </body>
+</html>
